@@ -1,5 +1,8 @@
 package org.jblasco;
 
+import java.time.LocalDate;
+import java.util.*;
+
 public class App {
 
     //Invertir una cadena
@@ -76,7 +79,55 @@ public class App {
 
     }
 
+    //Comprobar si el año es bisiesto
+public void m6IsLeapYear(int year){
+    boolean isLeapYear = LocalDate.of(year, 1,1).isLeapYear();
+    System.out.println(isLeapYear);
 
+}
+
+//re-ordenar de forma aleatoria
+public void m7RandomOrderString(String text){
+String[] array = text.split("");
+    List<String> list = Arrays.asList(array);
+    Collections.shuffle(list);
+    list.forEach(System.out::println);
+
+}
+//Si esta duplicado solo lo imprime una vez
+public void m8GetOnlyNotDuplicateList(List<Integer> list){
+        Set<Integer> set =  new HashSet<>(list);
+        set.forEach(System.out::println);
+}
+
+
+//Comprueba si existe una vocal dentro
+public void m9CheckIsVocalIsPresent(String text){
+
+        String[] array = text.split("");
+        boolean isPresent = false;
+        for (String s : array){
+            if (s.equals("a")|| s.equals("e")|| s.equals("i")|| s.equals("o")|| s.equals("u")){
+                isPresent = true;
+                break;
+            }
+        }
+    System.out.println(isPresent);
+
+}
+
+private boolean m10Palindrome(String text){
+boolean result = true;
+int lenght = text.length();
+for (int i = 0; i<lenght/2;i++){
+    if (text.charAt(i) != text.charAt(lenght -i -1)){
+        result = false;
+        break;
+    }
+}
+return result;
+
+}
 
     public static void main(String[] args) {
     App app = new App();
@@ -87,6 +138,11 @@ public class App {
         app.m3CounCharacterTimes("pascualin");
         app.m4RepeatedCharacter("pruebaaa");
         app.m5IsMultiple(1217);
+        app.m6IsLeapYear(2024);
+        app.m7RandomOrderString("prueba");
+        app.m8GetOnlyNotDuplicateList(Arrays.asList(1,2,3,4,5,8,6,8,9));
+        app.m9CheckIsVocalIsPresent("cola");
+        System.out.println(app.m10Palindrome("calac"));;
     }
 
 }
