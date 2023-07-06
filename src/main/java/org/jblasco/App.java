@@ -127,7 +127,26 @@ for (int i = 0; i<lenght/2;i++){
 }
 return result;
 
+
+
 }
+
+    private void m11CountWords(String text) {
+        int wordCount = contarPalabras(text);
+        System.out.println("Número de palabras: " + wordCount);
+    }
+
+
+    public static int contarPalabras(String texto) {
+        if (texto == null || texto.isEmpty()) {
+            return 0;
+        }
+
+        String[] palabras = texto.trim().split("\\s+");
+        return palabras.length;
+    }
+
+
 
     public static void main(String[] args) {
     App app = new App();
@@ -143,6 +162,8 @@ return result;
         app.m8GetOnlyNotDuplicateList(Arrays.asList(1,2,3,4,5,8,6,8,9));
         app.m9CheckIsVocalIsPresent("cola");
         System.out.println(app.m10Palindrome("calac"));;
+        app.m11CountWords("Este es un ejemplo de una cadena de texto");
+
     }
 
 }
